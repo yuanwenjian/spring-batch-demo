@@ -16,4 +16,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yuanwj.batch.mapper.UserMapper">
 
+    <select id="findAll" resultType="com.yuanwj.batch.model.UserEntity">
+        select * from T_USER;
+    </select>
 </mapper>

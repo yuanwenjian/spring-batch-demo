@@ -3,6 +3,7 @@ package com.yuanwj.batch.config;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -15,12 +16,11 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
 /**
- *  Copyright 天阳宏业科技股份有限公司 - All Rights Reserved
- *
  * @description:
  * @author: yuanwj
  * @date: 2020/10/09 09:42
  **/
+@ConditionalOnProperty(value = "spring.datasource", havingValue = "url")
 @Configuration
 public class DatasourceConfig {
     @Bean("batchDataSource")
@@ -53,6 +53,7 @@ public class DatasourceConfig {
 //        sessionFactory.setConfigLocation(new PathMatchingResourcePatternResolver().getResource(SlaveDataSourceConfig.CONFIG_LOCATION));
         return sessionFactory.getObject();
     }
+
     @Bean(name = "slaveTransactionManager")
     public DataSourceTransactionManager slaveTransactionManager() {
         return new DataSourceTransactionManager(batchDataSource());

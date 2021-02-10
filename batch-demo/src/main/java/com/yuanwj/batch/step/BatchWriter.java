@@ -14,7 +14,6 @@ import java.util.List;
 @Component
 public class BatchWriter implements ItemWriter<String> {
 
-    @Override
     public void write(List<? extends String> list) throws Exception {
         for (String message : list) {
             System.out.println(message);

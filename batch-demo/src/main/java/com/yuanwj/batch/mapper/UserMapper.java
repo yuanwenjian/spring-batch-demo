@@ -1,7 +1,10 @@
 package com.yuanwj.batch.mapper;
 
+import com.yuanwj.batch.model.UserEntity;
+
+import java.util.List;
+
 /**
- *  Copyright 天阳宏业科技股份有限公司 - All Rights Reserved
  *
  * @description:
  * @author: yuanwj
@@ -9,4 +12,5 @@ package com.yuanwj.batch.mapper;
  **/
 public interface UserMapper {
 
+    List<UserEntity> findAll();
 }

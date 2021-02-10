@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 /**
- *  Copyright 天阳宏业科技股份有限公司 - All Rights Reserved
  *
  * @description:
  * @author: yuanwj
@@ -34,8 +33,10 @@ public class BatchRest {
     @Autowired
     private JobLauncher jobLauncher;
 
-    @RequestMapping(value = "/batchTest",method = RequestMethod.GET)
-    public String batchTest() throws JobParametersInvalidException, JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException {
+    @RequestMapping(value = "/batchTest", method = RequestMethod.GET)
+    public String batchTest() throws JobParametersInvalidException,
+            JobExecutionAlreadyRunningException, JobRestartException,
+            JobInstanceAlreadyCompleteException {
         JobParameters jobParameters = new JobParametersBuilder().addDate("now", new Date()).toJobParameters();
         JobExecution jobExecution = jobLauncher.run(job, jobParameters);
         ExitStatus exitStatus = jobExecution.getExitStatus();

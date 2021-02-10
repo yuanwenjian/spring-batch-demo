@@ -14,14 +14,14 @@ import org.springframework.stereotype.Component;
  * @date: 2020/09/28 18:12
  **/
 @Component
-public class BatchReader implements ItemReader<String > {
+public class BatchReader implements ItemReader<String> {
 
-    private Integer count =0;
+    private Integer count = 0;
 
     public String read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
         if (count++ < 2) {
             return "success";
-        }else {
+        } else {
             count = 0;
         }
         return null;

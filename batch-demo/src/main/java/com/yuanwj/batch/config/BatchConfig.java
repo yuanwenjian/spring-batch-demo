@@ -21,7 +21,6 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 /**
- *  Copyright 天阳宏业科技股份有限公司 - All Rights Reserved
  *
  * @description:
  * @author: yuanwj
@@ -41,17 +40,31 @@ public class BatchConfig {
     @Autowired
     private BatchWriter batchWriter;
 
+//    @Autowired
+//    private DataSourceTransactionManager transactionManager;
 
-    @Bean
-    protected JobRepository createJobRepository(@Qualifier("batchDataSource") DataSource dataSource,
-                                                @Qualifier("batchTransactionManager") DataSourceTransactionManager transactionManager) throws Exception {
-        JobRepositoryFactoryBean factory = new JobRepositoryFactoryBean();
-        factory.setDataSource(dataSource);
-        factory.setTransactionManager(transactionManager);
-        factory.setIsolationLevelForCreate("ISOLATION_REPEATABLE_READ");
-        return factory.getObject();
-    }
 
+//    @Bean
+//    protected JobRepository createJobRepository(@Qualifier("batchDataSource") DataSource dataSource,
+//                                                @Qualifier("batchTransactionManager") DataSourceTransactionManager transactionManager)
+//            throws Exception {
+//        JobRepositoryFactoryBean factory = new JobRepositoryFactoryBean();
+//        factory.setDataSource(dataSource);
+//        factory.setTransactionManager(transactionManager);
+//        factory.setIsolationLevelForCreate("ISOLATION_REPEATABLE_READ");
+//        return factory.getObject();
+//    }
+
+//    @Bean
+//    protected JobRepository createJobRepository(DataSource dataSource,
+//                                                DataSourceTransactionManager transactionManager)
+//            throws Exception {
+//        JobRepositoryFactoryBean factory = new JobRepositoryFactoryBean();
+//        factory.setDataSource(dataSource);
+//        factory.setTransactionManager(transactionManager);
+//        factory.setIsolationLevelForCreate("ISOLATION_REPEATABLE_READ");
+//        return factory.getObject();
+//    }
 //    @Bean
 //    public BatchReader itemReader() {
 //        return new BatchReader();
